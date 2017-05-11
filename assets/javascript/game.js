@@ -21,27 +21,30 @@ document.onkeyup = function() {
 		guessCounter = 0;
 		userGuess = [];
 		document.querySelector("#guessesbox").innerHTML = "<center>You Won! New Game!</center>"
-		/*document.getElementById("#answerImg").src = "assets/images/joy.jpg";*/
+		document.getElementById("answerImg").src = "assets/images/joy.jpg";
 		} else if (possChoices.indexOf(ourChoice) >= 0 && ourChoice !== compChoice) {
 			if (userGuess.indexOf(ourChoice) >= 0) {
 				alert("You already chose this letter! Try again!");
+				document.getElementById("answerImg").src = "assets/images/disgust.jpg";
 			} else {
 				guessesLeft--;
 				create_guess_Array();
 				document.querySelector("#guessesbox").innerHTML = "<center>" + userGuess + "</center>"
-				/*document.getElementById("#answerImg").src = "assets/images/fear.jpg";*/
+
+				console.log(document.getElementById("answerImg"))
+				document.getElementById("answerImg").src = "assets/images/fear.jpg";
 			}
-			
+
 			if (guessesLeft === 0) {
 				guessesLeft = 9;
 				losses++;
 				guessCounter = 0;
 				userGuess = [];
 				document.querySelector("#guessesbox").innerHTML = "<center>You Lost! New Game!</center>"
-				/*document.getElementById("#answerImg").src = "assets/images/sadness.jpg";*/
+				document.getElementById("answerImg").src = "assets/images/sadness.jpg";
 			}
 		} else {
-			/*document.getElementById("#answerImg").src) = "assets/images/anger.jpg"*/
+			document.getElementById("answerImg").src = "assets/images/anger.jpg"
 			alert("Please choose a letter key!");
 		}
 	console.log(wins);
